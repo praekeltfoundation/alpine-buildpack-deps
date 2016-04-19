@@ -1,6 +1,6 @@
 FROM jamiehewland/alpine-buildpack-deps:curl
 
-RUN apk add --no-cache --virtual .scm-deps \
+RUN apk add --no-cache \
         bzr \
         git \
         mercurial \

@@ -1,6 +1,6 @@
 FROM jamiehewland/alpine-buildpack-deps:scm
 
-RUN apk add --no-cache --virtual .buildpack-deps \
+RUN apk add --no-cache \
   autoconf \
   automake \
   bzip2 \
