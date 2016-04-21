@@ -22,6 +22,7 @@ RUN apk add --no-cache \
   libwebp-dev \
   libxml2-dev \
   libxslt-dev \
+  linux-headers \
   make \
   mysql-client \
   ncurses-dev \
