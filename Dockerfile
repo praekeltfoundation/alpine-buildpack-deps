@@ -32,6 +32,7 @@ RUN apk add --no-cache \
   postgresql-dev \
   readline-dev \
   sqlite-dev \
+  xz \
   xz-dev \
   yaml-dev \
   zlib-dev
