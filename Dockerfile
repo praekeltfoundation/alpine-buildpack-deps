@@ -6,6 +6,7 @@ RUN apk add --no-cache \
   bzip2 \
   bzip2-dev \
   curl-dev \
+  db-dev \
   file \
   g++ \
   gcc \
