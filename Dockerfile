@@ -27,6 +27,7 @@ RUN apk add --no-cache \
   mysql-client \
   ncurses-dev \
   openssl-dev \
+  postgresql-dev \
   patch \
   readline-dev \
   sqlite-dev \
