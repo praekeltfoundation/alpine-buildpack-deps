@@ -25,7 +25,6 @@ RUN apk add --no-cache \
   libxslt-dev \
   linux-headers \
   make \
-  mysql-client \
   ncurses-dev \
   openssl-dev \
   patch \
