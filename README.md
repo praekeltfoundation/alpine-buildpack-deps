@@ -11,6 +11,7 @@ This repo contains a set of images similar to the official [buildpack-deps](http
 | `curl`       | [`curl/Dockerfile`](curl/Dockerfile)  | `alpine:3.4`   | Alpine with `curl` and `wget`                         |
 | `scm`        | [`scm/Dockerfile`](scm/Dockerfile)    | `:curl`        | `:curl` with version control tools                    |
 | `latest`     | [`Dockerfile`](Dockerfile)            | `:scm`         | `:scm` with build tools                               |
+| `dbs`        | [`dbs/Dockerfile`](dbs/Dockerfile)    | `:latest`      | `:latest` with database headers and libraries         |
 | `python-2.7` | [`python/2.7/Dockerfile`](python/2.7/Dockerfile) | `:latest`      | Like the official `python` Docker image but on Alpine |
 
 ## Packages
