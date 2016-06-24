@@ -18,7 +18,6 @@ RUN apk add --no-cache \
   libevent-dev \
   libffi-dev \
   libpng-dev \
-  libpq \
   libtool \
   libwebp-dev \
   libxml2-dev \
