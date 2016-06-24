@@ -25,6 +25,7 @@ RUN apk add --no-cache \
   libxslt-dev \
   linux-headers \
   make \
+  mariadb-dev \
   ncurses-dev \
   openssl-dev \
   patch \
