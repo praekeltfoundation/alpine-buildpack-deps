@@ -11,7 +11,7 @@ RUN apk add --no-cache \
   gcc \
   geoip-dev \
   glib-dev \
-  imagemagick \
+  imagemagick-dev \
   jpeg-dev \
   libc-dev \
   libevent-dev \
