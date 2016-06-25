@@ -14,6 +14,14 @@ This repo contains a set of images similar to the official [buildpack-deps](http
 | `latest`     | [`slim/Dockerfile`](dbs/Dockerfile)   | `:slim`        | `:slim` with database headers and libraries         |
 | `python-2.7` | [`python/2.7/Dockerfile`](python/2.7/Dockerfile) | `:latest`      | Like the official `python` Docker image but on Alpine |
 
+## Caveats
+* A best effort was made to find equivalent Alpine packages for the Debian packages in the official buildpack-deps. The packages may not always be *100% equivalent*.
+* The code you're compiling in buildpack-deps could make assumptions about the host that are not necessarily true for Alpine Linux. For example:
+  * That the standard Unix tools are the GNU implementations
+  * That the standard C library is `glibc`
+  * That the paths to development files are the Debian paths
+* The default/`latest` tag for this image is *not* smaller than the Debian/Ubuntu-based buildpack-deps images, although it is roughly the same size (~190MB compressed, ~660MB uncompressed). The reason for this is that the Alpine development libraries for PostgreSQL and MySQL are significantly bigger than the Debian ones. If you are hoping to make a small "buildpack-deps"-based Docker image, you're probably doing Docker images wrong.
+
 ## Packages
 The following sources were used to find the required packages:
 * [`curl`](https://github.com/docker-library/buildpack-deps/blob/a0a59c61102e8b079d568db69368fb89421f75f2/jessie/curl/Dockerfile)
