@@ -1,4 +1,7 @@
 # alpine-buildpack-deps
+
+[![Build Status](https://img.shields.io/travis/JayH5/alpine-buildpack-deps/develop.svg)](https://travis-ci.org/JayH5/alpine-buildpack-deps)
+
 An attempt at a "buildpack-deps"-like Docker image with Alpine Linux
 
 ### Images
