@@ -25,9 +25,10 @@ after_script:
   - docker images
 
 before_deploy:
+  - images=($(docker images --format '{{.Repository}}:{{.Tag}}' | grep "$image"))
   - pip install docker-ci-deploy
 deploy:
   provider: script
-  script: ./deploy.sh
+  script: ./deploy.sh "${images[@]}"
   on:
     branch: develop
