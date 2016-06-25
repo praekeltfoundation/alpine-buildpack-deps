@@ -9,12 +9,12 @@ The base image is the [official Docker Alpine image](https://hub.docker.com/_/al
 
 This repo contains a set of images similar to the official [buildpack-deps](https://hub.docker.com/_/buildpack-deps/) images.
 
-| **Tag**      | **Dockerfile location**              | **Base image** | **Description**                             |
-|--------------|--------------------------------------|----------------|---------------------------------------------|
-| `curl`       | [`curl/Dockerfile`](curl/Dockerfile) | `alpine:3.4`   | Alpine with `curl` and `wget`               |
-| `scm`        | [`scm/Dockerfile`](scm/Dockerfile)   | `:curl`        | `:curl` with version control tools          |
-| `slim`       | [`slim/Dockerfile`](slim/Dockerfile) | `:scm`         | `:scm` with build tools                     |
-| `latest`     | [`Dockerfile`](Dockerfile)           | `:slim`        | `:slim` with database headers and libraries |
+| **Tag**  | **Base image** | **Description**                                               |
+|----------|----------------|---------------------------------------------------------------|
+| `curl`   | `alpine:3.4`   | Alpine with `curl` and `wget`                                 |
+| `scm`    | `:curl`        | `:curl` with source control management (SCM) tools            |
+| `slim`   | `:scm`         | `:scm` with build tools and development libraries             |
+| `latest` | `:slim`        | `:slim` with database development libraries (see notes below) |
 
 ## Caveats
 * A best effort was made to find equivalent Alpine packages for the Debian packages in the official buildpack-deps. The packages may not always be *100% equivalent*.
