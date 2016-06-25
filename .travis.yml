@@ -1,0 +1,34 @@
+sudo: required
+language: python
+services:
+  - docker
+
+env:
+  global:
+    - REGISTRY_USER=jamiehewland
+    - secure: "hVjBAZmSKdogWVOlBnOii/hkExA5Bc53H3m/2GusXTEFE2TMFAfQDuUQKIemtdvZVgRHVKAC1PCgEo9S8v8zWUhbqEO1DA+rpPpY2vN1wTKrXj6iAhb31QsqgYR6B1jO0T5iJkaRCw+JN4YCb26QXtYaoG4EQ+FOoHSUYT3ENHsHTnM/1G8ycVdPFAeQiL363DA/NnLW/Q49ebd1/Z4YkXgQitUFeXXxxeM0dYz7MYfpfMts84rKx/sGiID/zn2tyGkftw9KnGl5qhLOpgkTLh5rJpS6KBFaMyIulcWs1vVwRjaKaM1wQoGJTm1Orz2T++9K/cqKbgL3A/YNh/SiBhyNn+awivl4lWNDcXrDNUkTy7DY69q5pnMvIEhQRPiDZpHVoeekIskfChTJURWsuL8wEfNtkA0Xc50pEE+J27zE/bZf2b5nMkwhCDa3LF4dJtHwpFKK0ZQc6OrHV/f8uC/sAoIhwU2FXlk72/l/4P6H1M518oe7qwsUSct+QfL9gFzpvjeJC3sxXuT/hbGr92QsSXoed8UDvxnLMwnkESkOeZ0f52eDdftKrXn0789XwTW1KN07X2L0Tstcdj77hR+q4z1oejtHUGIeoYHbIcbHLYrp/JJS+5lLVX3f3Pfhs28/M7b4pkxB+TiRXeO41Q1GweavxqvJHU7KKxNWGjQ="
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -o Dpkg::Options::="--force-confold" -y docker-engine
+
+before_script:
+  - image="$REGISTRY_USER/alpine-buildpack-deps"
+
+script:
+  - docker build -t "$image:curl" curl
+  - docker build -t "$image:scm" scm
+  - docker build -t "$image:slim" slim
+  - docker build -t "$image" .
+
+after_script:
+  - docker images
+
+before_deploy:
+  - images=($(docker images --format '{{.Repository}}:{{.Tag}}' | grep "$image"))
+  - pip install docker-ci-deploy
+deploy:
+  provider: script
+  script: ./deploy.sh "${images[@]}"
+  on:
+    branch: develop

@@ -1,18 +1,20 @@
 # alpine-buildpack-deps
+
+[![Build Status](https://img.shields.io/travis/JayH5/alpine-buildpack-deps/develop.svg)](https://travis-ci.org/JayH5/alpine-buildpack-deps)
+
 An attempt at a "buildpack-deps"-like Docker image with Alpine Linux
 
 ### Images
 The base image is the [official Docker Alpine image](https://hub.docker.com/_/alpine/).
 
-This repo contains a set of images similar to the official [buildpack-deps](https://hub.docker.com/_/buildpack-deps/) images. It also includes a Python 2.7 "builder" image similar to the [official Python image](https://hub.docker.com/_/python/).
+This repo contains a set of images similar to the official [buildpack-deps](https://hub.docker.com/_/buildpack-deps/) images.
 
-| **Tag**      | **Dockerfile location**               | **Base image** | **Description**                                       |
-|--------------|---------------------------------------|----------------|-------------------------------------------------------|
-| `curl`       | [`curl/Dockerfile`](curl/Dockerfile)  | `alpine:3.4`   | Alpine with `curl` and `wget`                         |
-| `scm`        | [`scm/Dockerfile`](scm/Dockerfile)    | `:curl`        | `:curl` with version control tools                    |
-| `slim`       | [`Dockerfile`](Dockerfile)            | `:scm`         | `:scm` with build tools                               |
-| `latest`     | [`slim/Dockerfile`](dbs/Dockerfile)   | `:slim`        | `:slim` with database headers and libraries         |
-| `python-2.7` | [`python/2.7/Dockerfile`](python/2.7/Dockerfile) | `:latest`      | Like the official `python` Docker image but on Alpine |
+| **Tag**  | **Base image** | **Description**                                               |
+|----------|----------------|---------------------------------------------------------------|
+| `curl`   | `alpine:3.4`   | Alpine with `curl` and `wget`                                 |
+| `scm`    | `:curl`        | `:curl` with source control management (SCM) tools            |
+| `slim`   | `:scm`         | `:scm` with build tools and development libraries             |
+| `latest` | `:slim`        | `:slim` with database development libraries (see notes below) |
 
 ## Caveats
 * A best effort was made to find equivalent Alpine packages for the Debian packages in the official buildpack-deps. The packages may not always be *100% equivalent*.
