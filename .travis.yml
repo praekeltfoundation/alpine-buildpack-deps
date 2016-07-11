@@ -13,7 +13,7 @@ before_install:
   - sudo apt-get install -o Dpkg::Options::="--force-confold" -y docker-engine
 
 before_script:
-  - image="$(awk '$1 == "FROM" { print $2; exit }' Dockerfile)" image="${image%%:*}"
+  - image="$(awk '$1 == "FROM" { print $2; exit }' Dockerfile | cut -d':' -f1)"
 
 script:
   - docker build -t "$image:curl" curl
