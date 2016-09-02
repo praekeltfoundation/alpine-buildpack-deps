@@ -14,6 +14,7 @@ RUN apk add --no-cache \
         glib-dev \
         imagemagick-dev \
         jpeg-dev \
+        krb5-dev \
         libc-dev \
         libevent-dev \
         libffi-dev \
