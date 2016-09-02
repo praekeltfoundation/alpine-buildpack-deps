@@ -50,6 +50,7 @@ The packages in the `curl` and `scm` variants all have the same names in Alpine 
 | `libgeoip-dev`         | `geoip-dev`                 |
 | `libglib2.0-dev`       | `glib-dev`                  |
 | `libjpeg-dev`          | `jpeg-dev`                  |
+| `libkrb5-dev`          | `krb5-dev`                  |
 | `liblzma-dev`          | `xz-dev`                    |
 | `libmagickcore-dev`    | `imagemagick-dev`           |
 | `libmagickwand-dev`    | `imagemagick-dev`           |
