@@ -47,6 +47,7 @@ The packages in the `curl` and `scm` variants all have the same names in Alpine 
 | `libdb-dev`            | `db-dev`                    |
 | `libevent-dev`         | `libevent-dev`              |
 | `libffi-dev`           | `libffi-dev`                |
+| `libgdbm-dev`          | `gdbm-dev`                  |
 | `libgeoip-dev`         | `geoip-dev`                 |
 | `libglib2.0-dev`       | `glib-dev`                  |
 | `libjpeg-dev`          | `jpeg-dev`                  |
