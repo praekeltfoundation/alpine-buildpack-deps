@@ -10,6 +10,7 @@ RUN apk add --no-cache \
         file \
         g++ \
         gcc \
+        gdbm-dev \
         geoip-dev \
         glib-dev \
         imagemagick-dev \
