@@ -20,6 +20,7 @@ RUN apk add --no-cache \
         libevent-dev \
         libffi-dev \
         libpng-dev \
+        libressl-dev \
         libtool \
         libwebp-dev \
         libxml2-dev \
@@ -27,7 +28,6 @@ RUN apk add --no-cache \
         linux-headers \
         make \
         ncurses-dev \
-        openssl-dev \
         patch \
         readline-dev \
         sqlite-dev \
