@@ -44,6 +44,6 @@ before_deploy:
   - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 deploy:
   provider: script
-  script: ./deploy.py $images "$VERSION" "${TAG_LATEST:+--latest}"
+  script: ./deploy.py $images "$VERSION" ${TAG_LATEST:+--latest}
   on:
     branch: develop
