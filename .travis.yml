@@ -1,5 +1,7 @@
 sudo: required
 language: python
+python:
+  - '3.6'
 services:
   - docker
 
@@ -7,6 +9,8 @@ env:
   global:
     - REGISTRY_USER=praekeltorgdeploy
     - secure: "RRvCtuewG7fmh/5p8KL4KUskXQySW0Z21KdELU319aTvY842CqHtr/K9Kq3J6rvx7cltcJv2xM+/4L/Oed0Ow4h76VcoPSXNXYNx537RvWwMaylR28sWqFz1dU99RJbZvoO00IlH8v7Lok8REysYYpgvW6oHEYJ4tak6sTJQQyKtd1rr74q2KCpmN1hwb2VUdihNzCLmwd6VNBiLibZA6S1Sn2w4CCCXq0vMeT5CZMW0vt5I7Kel4EZ4bLEE2P2Fk8QK1LrqLPeFBt6gfThn+EimWXqddzQAgtoBp7u80XsKsSYPe5UIYtnP2/Ax9E33RvIALpt62YMgAVF0B5qOmz3LqRcFQRu6ht/88OL6mBPzDkpT2kHkY01zIzNWx6BHFT+qZ0CjHrewCss/hMrKa8qkdcrOE3WT/ISlRHYPOMnt8/Pw3qZxTqMtrPCQfZqVZ9U0S+0dcQdOiIwcxGS2TNqc5OmX28WE3/zQ0gJ6L6SnVzt2B+dc4RY+xbbWQVk5GTTtL5WaNDAyOxQfsbEH/BgqUz0pRsbazrqDI3gzZe7B3I7iaVzYjRx9mQh8dpc8Gg19xyOoFulf1kqErhGAF3Vshf52hl6B8dsDH4mNIUHEeZWTODVz4h8M5oYJ6OhVy+yGNdf3OFO+BILPTLUXF+tcQvp+xDtLnM7+rIhGmvg="
+  matrix:
+    - VERSION=3.4 TAG_LATEST=1
 
 before_install:
   - sudo apt-get update
@@ -14,28 +18,31 @@ before_install:
 
 install:
   - git clone https://github.com/docker-library/official-images.git ~/official-images
+  - pip install coverage flake8
 
 before_script:
-  - image="$(awk '$1 == "FROM" { print $2; exit }' Dockerfile | cut -d':' -f1)"
+  - image="$(awk '$1 == "FROM" { print $2; exit }' Dockerfile | cut -d':' -f1):$VERSION"
 
 script:
-  - docker build -t "$image:curl" curl
-  - docker build -t "$image:scm" scm
-  - docker build -t "$image:slim" slim
-  - docker build -t "$image" .
+  - docker build -t "$image"-curl "$VERSION"/curl
+  - docker build -t "$image"-scm "$VERSION"/scm
+  - docker build -t "$image"-slim "$VERSION"/slim
+  - docker build -t "$image" "$VERSION"
   # Run the tests for the official Docker images. There are no tests specific to
   # buildpack-deps so just let the scripts run the default tests.
   - ~/official-images/test/run.sh "$image"
-
+  # Test our deploy script
+  - coverage run --include=deploy.py ./test_deploy.py && coverage report -m
+  - flake8 .
 
 after_script:
   - docker images
 
 before_deploy:
   - images="$(docker images --format '{{.Repository}}:{{.Tag}}' | grep "$image" | tr "\n" " ")"
-  - pip install docker-ci-deploy
+  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 deploy:
   provider: script
-  script: ./deploy.sh $images
+  script: ./deploy.py $images "$VERSION" "${TAG_LATEST:+--latest}"
   on:
     branch: develop

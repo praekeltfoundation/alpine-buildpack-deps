@@ -1,0 +1,10 @@
+# Python caches
+__pycache__/
+*.pyc
+
+# Coverage stuff
+.coverage
+.coverage.*
+*,cover
+coverage.xml
+htmlcov/
