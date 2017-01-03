@@ -21,7 +21,7 @@ install:
   - pip install coverage flake8
 
 before_script:
-  - image="$(awk '$1 == "FROM" { print $2; exit }' Dockerfile | cut -d':' -f1):$VERSION"
+  - image="$(awk '$1 == "FROM" { print $2; exit }' "$VERSION"/Dockerfile | cut -d':' -f1):$VERSION"
 
 script:
   - docker build -t "$image"-curl "$VERSION"/curl
