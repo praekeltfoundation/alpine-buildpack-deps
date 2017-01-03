@@ -1,4 +1,4 @@
-FROM praekeltfoundation/alpine-buildpack-deps:curl
+FROM praekeltfoundation/alpine-buildpack-deps:3.5-curl
 
 # procps is very common in build systems, and is a reasonably small package
 RUN apk add --no-cache \
