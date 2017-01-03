@@ -1,4 +1,4 @@
-FROM praekeltfoundation/alpine-buildpack-deps:scm
+FROM praekeltfoundation/alpine-buildpack-deps:3.4-scm
 
 RUN apk add --no-cache \
         autoconf \
