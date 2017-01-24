@@ -73,4 +73,5 @@ The packages in the `curl` and `scm` variants all have the same names in Alpine 
 | `zlib1g-dev`           | `zlib-dev`                     |
 
 \*Alpine Linux doesn't have development packages for MySQL or PostgreSQL that include only the headers/libraries necessary for client-side libraries. These Alpine packages are quite large because they include server headers/libraries as well.
+
 \**Alpine Linux switched from OpenSSL to [LibreSSL](https://www.libressl.org/) in version 3.5.
