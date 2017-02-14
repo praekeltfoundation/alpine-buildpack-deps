@@ -1,7 +1,5 @@
 sudo: required
 language: python
-python:
-  - '3.6'
 services:
   - docker
 
@@ -19,7 +17,6 @@ before_install:
 
 install:
   - git clone https://github.com/docker-library/official-images.git ~/official-images
-  - pip install coverage flake8
 
 before_script:
   - image="$(awk '$1 == "FROM" { print $2; exit }' "$VERSION"/Dockerfile | cut -d':' -f1):$VERSION"
@@ -32,18 +29,16 @@ script:
   # Run the tests for the official Docker images. There are no tests specific to
   # buildpack-deps so just let the scripts run the default tests.
   - ~/official-images/test/run.sh "$image"
-  # Test our deploy script
-  - coverage run --include=deploy.py ./test_deploy.py && coverage report -m
-  - flake8 .
 
 after_script:
   - docker images
 
 before_deploy:
   - images="$(docker images --format '{{.Repository}}:{{.Tag}}' | grep "$image" | tr "\n" " ")"
+  - pip install docker-ci-deploy==0.2.0
   - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 deploy:
   provider: script
-  script: ./deploy.py $images "$VERSION" ${TAG_LATEST:+--latest}
+  script: dcd --tag-version "$VERSION" ${TAG_LATEST:+--tag-latest} $images
   on:
     branch: develop
