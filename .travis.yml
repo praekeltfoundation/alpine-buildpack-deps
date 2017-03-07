@@ -20,12 +20,14 @@ install:
 
 before_script:
   - image="$(awk '$1 == "FROM" { print $2; exit }' "$VERSION"/Dockerfile | cut -d':' -f1):$VERSION"
+  # Pull full image to use as cache
+  - docker pull "$image"
 
 script:
-  - docker build -t "$image"-curl "$VERSION"/curl
-  - docker build -t "$image"-scm "$VERSION"/scm
-  - docker build -t "$image"-slim "$VERSION"/slim
-  - docker build -t "$image" "$VERSION"
+  - docker build --pull --cache-from "$image" -t "$image"-curl "$VERSION"/curl
+  - docker build --cache-from "$image" -t "$image"-scm "$VERSION"/scm
+  - docker build --cache-from "$image" -t "$image"-slim "$VERSION"/slim
+  - docker build --cache-from "$image" -t "$image" "$VERSION"
   # Run the tests for the official Docker images. There are no tests specific to
   # buildpack-deps so just let the scripts run the default tests.
   - ~/official-images/test/run.sh "$image"
