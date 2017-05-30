@@ -22,7 +22,7 @@ install:
 before_script:
   - image="$(awk '$1 == "FROM" { print $2; exit }' "$VERSION"/Dockerfile | cut -d':' -f1):$VERSION"
   # Pull full image to use as cache
-  - docker pull "$image"
+  - docker pull "$image" || true
 
 script:
   - docker build --pull --cache-from "$image" -t "$image"-curl "$VERSION"/curl
