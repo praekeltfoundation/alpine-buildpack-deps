@@ -37,9 +37,11 @@ The packages in the `curl` and `scm` variants all have the same names in Alpine 
 | `autoconf`             | `autoconf`                     |
 | `automake`             | `automake`                     |
 | `bzip2`                | `bzip2`                        |
+| `dirmngr`              | `gnupg`                        |
 | `file`                 | `file`                         |
 | `g++`                  | `g++`                          |
 | `gcc`                  | `gcc`                          |
+| `gnupg2`               | `gnupg`                        |
 | `imagemagick`          | `imagemagick-dev`              |
 | `libbz2-dev`           | `bzip2-dev`                    |
 | `libc6-dev`            | `libc-dev`, `linux-headers`    |
