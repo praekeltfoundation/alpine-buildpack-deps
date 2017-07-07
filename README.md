@@ -25,23 +25,42 @@ This repo contains a set of images similar to the official [buildpack-deps](http
 * The default/`latest` tag for this image is *not* smaller than the Debian/Ubuntu-based buildpack-deps images, although it is roughly the same size (~190MB compressed, ~660MB uncompressed). The reason for this is that the Alpine development libraries for PostgreSQL and MySQL are significantly bigger than the Debian ones. If you are hoping to make a small "buildpack-deps"-based Docker image, you're probably doing Docker images wrong.
 
 ## Packages
-The following sources were used to find the required packages:
-* [`curl`](https://github.com/docker-library/buildpack-deps/blob/a0a59c61102e8b079d568db69368fb89421f75f2/jessie/curl/Dockerfile)
-* [`scm`](https://github.com/docker-library/buildpack-deps/blob/1845b3f918f69b4c97912b0d4d68a5658458e84f/jessie/scm/Dockerfile)
-* [`latest`](https://github.com/docker-library/buildpack-deps/blob/e7534be05255522954f50542ebf9c5f06485838d/jessie/Dockerfile)
+The packages in the `curl` and `scm` variants mostly have the same names in Alpine Linux as they do in the Debian/Ubuntu source. The translation of packages for the `latest` image is a bit more complicated, though. The packages used are listed below.
 
-The packages in the `curl` and `scm` variants all have the same names in Alpine Linux as they do in the Debian/Ubuntu source. The translation of packages for the `latest` image is a bit more complicated, though. The packages used are listed below:
+### `curl`
+[Upstream](https://github.com/docker-library/buildpack-deps/blob/9f60e19008458220114f1a0b6cd3710f1015d402/stretch/curl/Dockerfile)
+
+| **buildpack-deps** | **alpine-buildpack-deps** |
+|--------------------|---------------------------|
+| `ca-certificates`  | `ca-certificates`         |
+| `curl`             | `curl`                    |
+| `dirmngr`          | `gnupg`                   |
+| `gnupg2`           | `gnupg`                   |
+| `wget`             | `wget`                    |
+
+### `scm`
+[Upstream](https://github.com/docker-library/buildpack-deps/blob/1845b3f918f69b4c97912b0d4d68a5658458e84f/stretch/scm/Dockerfile)
+
+| **buildpack-deps** | **alpine-buildpack-deps** |
+|--------------------|---------------------------|
+| `bzr`              | `bzr`                     |
+| `git`              | `git`                     |
+| `mercurial`        | `mercurial`               |
+| `openssh-client`   | `openssh-client`          |
+| `procps`           | `procps`                  |
+| `subversion`       | `subversion`              |
+
+### `latest`
+[Upstream](https://github.com/docker-library/buildpack-deps/blob/587934fb063d770d0611e94b57c9dd7a38edf928/stretch/Dockerfile)
 
 | **buildpack-deps**     | **alpine-buildpack-deps**      |
 |------------------------|-----------------------------   |
 | `autoconf`             | `autoconf`                     |
 | `automake`             | `automake`                     |
 | `bzip2`                | `bzip2`                        |
-| `dirmngr`              | `gnupg`                        |
 | `file`                 | `file`                         |
 | `g++`                  | `g++`                          |
 | `gcc`                  | `gcc`                          |
-| `gnupg2`               | `gnupg`                        |
 | `imagemagick`          | `imagemagick-dev`              |
 | `libbz2-dev`           | `bzip2-dev`                    |
 | `libc6-dev`            | `libc-dev`, `linux-headers`    |
