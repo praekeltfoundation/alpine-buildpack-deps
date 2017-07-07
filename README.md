@@ -1,6 +1,6 @@
 # alpine-buildpack-deps
 
-[![Build Status](https://img.shields.io/travis/praekeltfoundation/alpine-buildpack-deps/develop.svg)](https://travis-ci.org/praekeltfoundation/alpine-buildpack-deps)
+[![Build Status](https://img.shields.io/travis/praekeltfoundation/alpine-buildpack-deps/master.svg)](https://travis-ci.org/praekeltfoundation/alpine-buildpack-deps)
 
 An attempt at a "buildpack-deps"-like Docker image with Alpine Linux
 
