@@ -44,4 +44,4 @@ deploy:
   provider: script
   script: dcd --tag-version "$VERSION" ${TAG_LATEST:+--tag-latest} $images
   on:
-    branch: develop
+    branch: master
