@@ -4,4 +4,5 @@ RUN apk add --no-cache \
         ca-certificates \
         curl \
         gnupg \
-        wget
+        wget \
+        tar
