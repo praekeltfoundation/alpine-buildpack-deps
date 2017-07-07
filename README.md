@@ -38,6 +38,8 @@ The packages in the `curl` and `scm` variants mostly have the same names in Alpi
 | `gnupg2`           | `gnupg`                   |
 | `wget`             | `wget`                    |
 
+Additionally, we install the `tar` package in the `curl` image. This installs the GNU version of tar, which has more features than the BusyBox tar provided with Alpine Linux. In particular, the `--strip-components` option only available in GNU tar is commonly used in the Docker official images when extracting source code from tarballs.
+
 ### `scm`
 [Upstream](https://github.com/docker-library/buildpack-deps/blob/1845b3f918f69b4c97912b0d4d68a5658458e84f/stretch/scm/Dockerfile)
 
