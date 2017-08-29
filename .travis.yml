@@ -34,10 +34,10 @@ after_script:
 
 before_deploy:
   - images="$(docker images --format '{{.Repository}}:{{.Tag}}' | grep "$image" | tr "\n" " ")"
-  - pip install docker-ci-deploy==0.2.0
+  - pip install docker-ci-deploy==0.3.0
   - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 deploy:
   provider: script
-  script: dcd --tag-version "$VERSION" ${TAG_LATEST:+--tag-latest} $images
+  script: dcd --version "$VERSION" ${TAG_LATEST:+--version-latest} $images
   on:
     branch: master

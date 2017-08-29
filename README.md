@@ -1,5 +1,6 @@
 # alpine-buildpack-deps
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/praekeltfoundation/alpine-buildpack-deps.svg)](https://hub.docker.com/r/praekeltfoundation/alpine-buildpack-deps/)
 [![Build Status](https://img.shields.io/travis/praekeltfoundation/alpine-buildpack-deps/master.svg)](https://travis-ci.org/praekeltfoundation/alpine-buildpack-deps)
 
 An attempt at a "buildpack-deps"-like Docker image with Alpine Linux
@@ -60,6 +61,7 @@ Additionally, we install the `tar` package in the `curl` image. This installs th
 | `autoconf`             | `autoconf`                     |
 | `automake`             | `automake`                     |
 | `bzip2`                | `bzip2`                        |
+| `dpkg-dev`             | `dpkg`, `dpkg-dev`             |
 | `file`                 | `file`                         |
 | `g++`                  | `g++`                          |
 | `gcc`                  | `gcc`                          |
