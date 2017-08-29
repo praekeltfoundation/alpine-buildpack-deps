@@ -60,6 +60,7 @@ Additionally, we install the `tar` package in the `curl` image. This installs th
 | `autoconf`             | `autoconf`                     |
 | `automake`             | `automake`                     |
 | `bzip2`                | `bzip2`                        |
+| `dpkg-dev`             | `dpkg`, `dpkg-dev`             |
 | `file`                 | `file`                         |
 | `g++`                  | `g++`                          |
 | `gcc`                  | `gcc`                          |
