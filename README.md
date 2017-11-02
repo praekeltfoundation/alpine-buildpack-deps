@@ -31,15 +31,17 @@ The packages in the `curl` and `scm` variants mostly have the same names in Alpi
 ### `curl`
 [Upstream](https://github.com/docker-library/buildpack-deps/blob/9f60e19008458220114f1a0b6cd3710f1015d402/stretch/curl/Dockerfile)
 
-| **buildpack-deps** | **alpine-buildpack-deps** |
-|--------------------|---------------------------|
-| `ca-certificates`  | `ca-certificates`         |
-| `curl`             | `curl`                    |
-| `dirmngr`          | `gnupg`                   |
-| `gnupg2`           | `gnupg`                   |
-| `wget`             | `wget`                    |
+| **buildpack-deps** | **alpine-buildpack-deps**         |
+|--------------------|-----------------------------------|
+| `ca-certificates`  | `ca-certificates`*                |
+| `curl`             | `curl`                            |
+| `dirmngr`          | `gnupg`                           |
+| `gnupg`            | `gnupg`                           |
+| `wget`             | `busybox`/(`libressl`/`openssl`)* |
 
 Additionally, we install the `tar` package in the `curl` image. This installs the GNU version of tar, which has more features than the BusyBox tar provided with Alpine Linux. In particular, the `--strip-components` option only available in GNU tar is commonly used in the Docker official images when extracting source code from tarballs.
+
+\*Alpine Linux uses BusyBox which includes an implementation of wget. In order for this wget to verify certificates, the `libressl` (Alpine 3.5+) or `openssl` package is required, both of which include a certificate bundle. The `ca-certificates` package also includes a certificate bundle and is required for Curl to be able to verify certificates.
 
 ### `scm`
 [Upstream](https://github.com/docker-library/buildpack-deps/blob/1845b3f918f69b4c97912b0d4d68a5658458e84f/stretch/scm/Dockerfile)
@@ -81,7 +83,8 @@ Additionally, we install the `tar` package in the `curl` image. This installs th
 | `libmagickcore-dev`    | `imagemagick-dev`              |
 | `libmagickwand-dev`    | `imagemagick-dev`              |
 | `libmysqlclient-dev`   | `mariadb-dev`*                 |
-| `libncurses-dev`       | `ncurses-dev`                  |
+| `libncurses5-dev`      | `ncurses-dev`                  |
+| `libncursesw5-dev`     | `ncurses-dev`                  |
 | `libpng-dev`           | `libpng-dev`                   |
 | `libpq-dev`            | `postgresql-dev`*              |
 | `libreadline-dev`      | `readline-dev`                 |
