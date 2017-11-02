@@ -31,15 +31,17 @@ The packages in the `curl` and `scm` variants mostly have the same names in Alpi
 ### `curl`
 [Upstream](https://github.com/docker-library/buildpack-deps/blob/9f60e19008458220114f1a0b6cd3710f1015d402/stretch/curl/Dockerfile)
 
-| **buildpack-deps** | **alpine-buildpack-deps** |
-|--------------------|---------------------------|
-| `ca-certificates`  | `ca-certificates`         |
-| `curl`             | `curl`                    |
-| `dirmngr`          | `gnupg`                   |
-| `gnupg`            | `gnupg`                   |
-| `wget`             | `wget`                    |
+| **buildpack-deps** | **alpine-buildpack-deps**         |
+|--------------------|-----------------------------------|
+| `ca-certificates`  | `ca-certificates`*                |
+| `curl`             | `curl`                            |
+| `dirmngr`          | `gnupg`                           |
+| `gnupg`            | `gnupg`                           |
+| `wget`             | `busybox`/(`libressl`/`openssl`)* |
 
 Additionally, we install the `tar` package in the `curl` image. This installs the GNU version of tar, which has more features than the BusyBox tar provided with Alpine Linux. In particular, the `--strip-components` option only available in GNU tar is commonly used in the Docker official images when extracting source code from tarballs.
+
+\*A certificate bundle comes with the `libressl`/`openssl` packages which can be used by wget. The `ca-certificates` package also includes a certificate bundle and is required for Curl to be able to verify certificates. Alpine Linux uses BusyBox which includes its own version of wget.
 
 ### `scm`
 [Upstream](https://github.com/docker-library/buildpack-deps/blob/1845b3f918f69b4c97912b0d4d68a5658458e84f/stretch/scm/Dockerfile)
