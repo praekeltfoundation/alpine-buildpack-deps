@@ -41,7 +41,7 @@ The packages in the `curl` and `scm` variants mostly have the same names in Alpi
 
 Additionally, we install the `tar` package in the `curl` image. This installs the GNU version of tar, which has more features than the BusyBox tar provided with Alpine Linux. In particular, the `--strip-components` option only available in GNU tar is commonly used in the Docker official images when extracting source code from tarballs.
 
-\*A certificate bundle comes with the `libressl`/`openssl` packages which can be used by wget. The `ca-certificates` package also includes a certificate bundle and is required for Curl to be able to verify certificates. Alpine Linux uses BusyBox which includes its own version of wget.
+\*Alpine Linux uses BusyBox which includes an implementation of wget. In order for this wget to verify certificates, the `libressl` (Alpine 3.5+) or `openssl` package is required, both of which include a certificate bundle. The `ca-certificates` package also includes a certificate bundle and is required for Curl to be able to verify certificates.
 
 ### `scm`
 [Upstream](https://github.com/docker-library/buildpack-deps/blob/1845b3f918f69b4c97912b0d4d68a5658458e84f/stretch/scm/Dockerfile)
