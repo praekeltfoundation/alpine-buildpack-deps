@@ -36,7 +36,7 @@ The packages in the `curl` and `scm` variants mostly have the same names in Alpi
 | `ca-certificates`  | `ca-certificates`         |
 | `curl`             | `curl`                    |
 | `dirmngr`          | `gnupg`                   |
-| `gnupg2`           | `gnupg`                   |
+| `gnupg`            | `gnupg`                   |
 | `wget`             | `wget`                    |
 
 Additionally, we install the `tar` package in the `curl` image. This installs the GNU version of tar, which has more features than the BusyBox tar provided with Alpine Linux. In particular, the `--strip-components` option only available in GNU tar is commonly used in the Docker official images when extracting source code from tarballs.
@@ -81,7 +81,8 @@ Additionally, we install the `tar` package in the `curl` image. This installs th
 | `libmagickcore-dev`    | `imagemagick-dev`              |
 | `libmagickwand-dev`    | `imagemagick-dev`              |
 | `libmysqlclient-dev`   | `mariadb-dev`*                 |
-| `libncurses-dev`       | `ncurses-dev`                  |
+| `libncurses5-dev`      | `ncurses-dev`                  |
+| `libncursesw5-dev`     | `ncurses-dev`                  |
 | `libpng-dev`           | `libpng-dev`                   |
 | `libpq-dev`            | `postgresql-dev`*              |
 | `libreadline-dev`      | `readline-dev`                 |
