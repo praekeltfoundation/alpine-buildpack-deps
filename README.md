@@ -48,12 +48,14 @@ Additionally, we install the `tar` package in the `curl` image. This installs th
 
 | **buildpack-deps** | **alpine-buildpack-deps** |
 |--------------------|---------------------------|
-| `bzr`              | `bzr`                     |
+| `bzr`*             | `bzr`*                    |
 | `git`              | `git`                     |
 | `mercurial`        | `mercurial`               |
 | `openssh-client`   | `openssh-client`          |
 | `procps`           | `procps`                  |
 | `subversion`       | `subversion`              |
+
+\*`bzr` was [removed](https://github.com/docker-library/buildpack-deps/pull/66) from the latest buildpack-deps variants. Starting with Alpine 3.7, `bzr` is not present in alpine-buildpack-deps either.
 
 ### `latest`
 [Upstream](https://github.com/docker-library/buildpack-deps/blob/587934fb063d770d0611e94b57c9dd7a38edf928/stretch/Dockerfile)
