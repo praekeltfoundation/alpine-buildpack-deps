@@ -39,7 +39,7 @@ after_script:
 before_deploy:
   - images="$(docker images --format '{{.Repository}}:{{.Tag}}' | grep "$image" | tr "\n" " ")"
   - pip install docker-ci-deploy==0.3.0
-  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+  - echo $REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin
 deploy:
   provider: script
   script: dcd --version "$VERSION" ${TAG_LATEST:+--version-latest} $images
