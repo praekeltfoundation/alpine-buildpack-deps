@@ -13,7 +13,8 @@ env:
   matrix:
     - VERSION=3.5 TAG_LATEST=
     - VERSION=3.6 TAG_LATEST=
-    - VERSION=3.7 TAG_LATEST=1
+    - VERSION=3.7 TAG_LATEST=
+    - VERSION=3.8 TAG_LATEST=1
 
 install:
   - git clone https://github.com/docker-library/official-images.git ~/official-images
