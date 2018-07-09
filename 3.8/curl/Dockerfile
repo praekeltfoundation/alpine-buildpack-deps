@@ -1,8 +1,7 @@
-FROM alpine:3.4
+FROM alpine:3.8
 
 RUN apk add --no-cache \
         ca-certificates \
         curl \
         gnupg \
-        openssl \
         tar
