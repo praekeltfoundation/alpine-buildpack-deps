@@ -23,7 +23,7 @@ This repo contains a set of images similar to the official [buildpack-deps](http
   * That the standard Unix tools are the GNU implementations
   * That the standard C library is `glibc`
   * That the paths to development files are the Debian paths
-* The default/`latest` tag for this image is *not* smaller than the Debian/Ubuntu-based buildpack-deps images, although it is roughly the same size (~190MB compressed, ~660MB uncompressed). The reason for this is that the Alpine development libraries for PostgreSQL and MySQL are significantly bigger than the Debian ones. If you are hoping to make a small "buildpack-deps"-based Docker image, you're probably doing Docker images wrong.
+* The default/`latest` tag for this image is ~~*not*~~ smaller than the Debian/Ubuntu-based buildpack-deps images~~, although it is roughly the same size (~190MB compressed, ~660MB uncompressed). The reason for this is that the Alpine development libraries for PostgreSQL and MySQL are significantly bigger than the Debian ones.~~ If you are hoping to make a small "buildpack-deps"-based Docker image, you're probably doing Docker images wrong. _Newer versions of Alpine Linux now produce images smaller than their Debain/Ubuntu-based equivalents._
 
 ## Packages
 The packages in the `curl` and `scm` variants mostly have the same names in Alpine Linux as they do in the Debian/Ubuntu source. The translation of packages for the `latest` image is a bit more complicated, though. The packages used are listed below.
