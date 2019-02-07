@@ -33,32 +33,27 @@ The packages in the `curl` and `scm` variants mostly have the same names in Alpi
 
 | **buildpack-deps** | **alpine-buildpack-deps** |
 |--------------------|---------------------------|
-| `ca-certificates`  | `ca-certificates`*        |
+| `ca-certificates`  | `ca-certificates`         |
 | `curl`             | `curl`                    |
 | `dirmngr`          | `gnupg`                   |
 | `gnupg`            | `gnupg`                   |
-| `netbase`          | `alpine-baselayout`**     |
-| `wget`             | `busybox`/(`libressl`)*   |
+| `netbase`          | `alpine-baselayout`*      |
+| `wget`             | `busybox`                 |
 
 Additionally, we install the `tar` package in the `curl` image. This installs the GNU version of tar, which has more features than the BusyBox tar provided with Alpine Linux. In particular, the `--strip-components` option only available in GNU tar is commonly used in the Docker official images when extracting source code from tarballs.
 
-\*Alpine Linux uses BusyBox which includes an implementation of wget. With Alpine 3.5-3.6, in order for this wget to verify certificates, the `libressl` package is required which includes a certificate bundle. With Alpine 3.7+, a certificate bundle is in the standard image. The `ca-certificates` package also includes a certificate bundle and is required for Curl to be able to verify certificates.
-
-\**This package is one of the base packages of Alpine Linux. It includes most of the `netbase` files including `/etc/protocols` and `/etc/services`.
+\*This package is one of the base packages of Alpine Linux. It includes most of the `netbase` files including `/etc/protocols` and `/etc/services`.
 
 ### `scm`
 [Upstream](https://github.com/docker-library/buildpack-deps/blob/1845b3f918f69b4c97912b0d4d68a5658458e84f/stretch/scm/Dockerfile)
 
 | **buildpack-deps** | **alpine-buildpack-deps** |
 |--------------------|---------------------------|
-| `bzr`*             | `bzr`*                    |
 | `git`              | `git`                     |
 | `mercurial`        | `mercurial`               |
 | `openssh-client`   | `openssh-client`          |
 | `procps`           | `procps`                  |
 | `subversion`       | `subversion`              |
-
-\*`bzr` was [removed](https://github.com/docker-library/buildpack-deps/pull/66) from the latest buildpack-deps variants. Starting with Alpine 3.7, `bzr` is not present in alpine-buildpack-deps either.
 
 ### `latest`
 [Upstream](https://github.com/docker-library/buildpack-deps/blob/587934fb063d770d0611e94b57c9dd7a38edf928/stretch/Dockerfile)
