@@ -1,7 +1,6 @@
-sudo: required
+dist: xenial
 language: python
-services:
-  - docker
+services: docker
 
 branches:
   only: [master]
