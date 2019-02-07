@@ -96,6 +96,7 @@ Additionally, we install the `tar` package in the `curl` image. This installs th
 | `libyaml-dev`          | `yaml-dev`                       |
 | `make`                 | `make`                           |
 | `patch`                | `patch`                          |
+| `unzip`                | `busybox`                        |
 | `xz-utils`             | `xz`                             |
 | `zlib1g-dev`           | `zlib-dev`                       |
 
