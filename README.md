@@ -63,46 +63,47 @@ Additionally, we install the `tar` package in the `curl` image. This installs th
 ### `latest`
 [Upstream](https://github.com/docker-library/buildpack-deps/blob/587934fb063d770d0611e94b57c9dd7a38edf928/stretch/Dockerfile)
 
-| **buildpack-deps**     | **alpine-buildpack-deps**      |
-|------------------------|-----------------------------|
-| `autoconf`             | `autoconf`                  |
-| `automake`             | `automake`                  |
-| `bzip2`                | `bzip2`                     |
-| `dpkg-dev`             | `dpkg`, `dpkg-dev`          |
-| `file`                 | `file`                      |
-| `g++`                  | `g++`                       |
-| `gcc`                  | `gcc`                       |
-| `imagemagick`          | `imagemagick-dev`           |
-| `libbz2-dev`           | `bzip2-dev`                 |
-| `libc6-dev`            | `libc-dev`, `linux-headers` |
-| `libcurl4-openssl-dev` | `curl-dev`                  |
-| `libdb-dev`            | `db-dev`                    |
-| `libevent-dev`         | `libevent-dev`              |
-| `libffi-dev`           | `libffi-dev`                |
-| `libgdbm-dev`          | `gdbm-dev`                  |
-| `libgeoip-dev`         | `geoip-dev`                 |
-| `libglib2.0-dev`       | `glib-dev`                  |
-| `libjpeg-dev`          | `jpeg-dev`                  |
-| `libkrb5-dev`          | `krb5-dev`                  |
-| `liblzma-dev`          | `xz-dev`                    |
-| `libmagickcore-dev`    | `imagemagick-dev`           |
-| `libmagickwand-dev`    | `imagemagick-dev`           |
-| `libmysqlclient-dev`   | `mariadb-dev`*              |
-| `libncurses5-dev`      | `ncurses-dev`               |
-| `libncursesw5-dev`     | `ncurses-dev`               |
-| `libpng-dev`           | `libpng-dev`                |
-| `libpq-dev`            | `postgresql-dev`*           |
-| `libreadline-dev`      | `readline-dev`              |
-| `libsqlite3-dev`       | `sqlite-dev`                |
-| `libssl-dev`           | `libressl-dev`              |
-| `libtool`              | `libtool`                   |
-| `libwebp-dev`          | `libwebp-dev`               |
-| `libxml2-dev`          | `libxml2-dev`               |
-| `libxslt-dev`          | `libxslt-dev`               |
-| `libyaml-dev`          | `yaml-dev`                  |
-| `make`                 | `make`                      |
-| `patch`                | `patch`                     |
-| `xz-utils`             | `xz`                        |
-| `zlib1g-dev`           | `zlib-dev`                  |
+| **buildpack-deps**     | **alpine-buildpack-deps**        |
+|------------------------|----------------------------------|
+| `autoconf`             | `autoconf`                       |
+| `automake`             | `automake`                       |
+| `bzip2`                | `bzip2`                          |
+| `dpkg-dev`             | `dpkg`, `dpkg-dev`               |
+| `file`                 | `file`                           |
+| `g++`                  | `g++`                            |
+| `gcc`                  | `gcc`                            |
+| `imagemagick`          | `imagemagick-dev`                |
+| `libbz2-dev`           | `bzip2-dev`                      |
+| `libc6-dev`            | `libc-dev`, `linux-headers`      |
+| `libcurl4-openssl-dev` | `curl-dev`                       |
+| `libdb-dev`            | `db-dev`                         |
+| `libevent-dev`         | `libevent-dev`                   |
+| `libffi-dev`           | `libffi-dev`                     |
+| `libgdbm-dev`          | `gdbm-dev`                       |
+| `libgeoip-dev`         | `geoip-dev`                      |
+| `libglib2.0-dev`       | `glib-dev`                       |
+| `libjpeg-dev`          | `jpeg-dev`                       |
+| `libkrb5-dev`          | `krb5-dev`                       |
+| `liblzma-dev`          | `xz-dev`                         |
+| `libmagickcore-dev`    | `imagemagick-dev`                |
+| `libmagickwand-dev`    | `imagemagick-dev`                |
+| `libmysqlclient-dev`   | `mariadb-dev`*                   |
+| `libncurses5-dev`      | `ncurses-dev`                    |
+| `libncursesw5-dev`     | `ncurses-dev`                    |
+| `libpng-dev`           | `libpng-dev`                     |
+| `libpq-dev`            | `postgresql-dev`*                |
+| `libreadline-dev`      | `readline-dev`                   |
+| `libsqlite3-dev`       | `sqlite-dev`                     |
+| `libssl-dev`           | `openssl-dev`/(`libressl-dev`)** |
+| `libtool`              | `libtool`                        |
+| `libwebp-dev`          | `libwebp-dev`                    |
+| `libxml2-dev`          | `libxml2-dev`                    |
+| `libxslt-dev`          | `libxslt-dev`                    |
+| `libyaml-dev`          | `yaml-dev`                       |
+| `make`                 | `make`                           |
+| `patch`                | `patch`                          |
+| `xz-utils`             | `xz`                             |
+| `zlib1g-dev`           | `zlib-dev`                       |
 
 \*Alpine Linux doesn't have development packages for MySQL or PostgreSQL that include only the headers/libraries necessary for client-side libraries. These Alpine packages are quite large because they include server headers/libraries as well.
+\**Alpine Linux between versions 3.5 and 3.8 used LibreSSL. For version 3.9, they switched back to OpenSSL.
