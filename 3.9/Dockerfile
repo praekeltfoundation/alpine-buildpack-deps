@@ -1,5 +1,41 @@
-FROM praekeltfoundation/alpine-buildpack-deps:3.9-slim
+FROM praekeltfoundation/alpine-buildpack-deps:3.9-scm
 
 RUN apk add --no-cache \
+        autoconf \
+        automake \
+        bzip2 \
+        bzip2-dev \
+        curl-dev \
+        db-dev \
+        dpkg \
+        dpkg-dev \
+        file \
+        g++ \
+        gcc \
+        gdbm-dev \
+        geoip-dev \
+        glib-dev \
+        imagemagick-dev \
+        jpeg-dev \
+        krb5-dev \
+        libc-dev \
+        libevent-dev \
+        libffi-dev \
+        libpng-dev \
+        libtool \
+        libwebp-dev \
+        libxml2-dev \
+        libxslt-dev \
+        linux-headers \
+        make \
+        mariadb-dev \
+        ncurses-dev \
+        openssl-dev \
+        patch \
         postgresql-dev \
-        mariadb-dev
+        readline-dev \
+        sqlite-dev \
+        xz \
+        xz-dev \
+        yaml-dev \
+        zlib-dev

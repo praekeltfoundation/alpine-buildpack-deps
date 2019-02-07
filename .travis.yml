@@ -24,7 +24,6 @@ before_script:
 script:
   - docker build --pull --cache-from "$image" -t "$image"-curl "$VERSION"/curl
   - docker build --cache-from "$image" -t "$image"-scm "$VERSION"/scm
-  - docker build --cache-from "$image" -t "$image"-slim "$VERSION"/slim
   - docker build --cache-from "$image" -t "$image" "$VERSION"
   # Run the tests for the official Docker images. There are no tests specific to
   # buildpack-deps so just let the scripts run the default tests.
