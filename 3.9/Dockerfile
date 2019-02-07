@@ -1,4 +1,4 @@
-FROM praekeltfoundation/alpine-buildpack-deps:3.7-scm
+FROM praekeltfoundation/alpine-buildpack-deps:3.9-scm
 
 RUN apk add --no-cache \
         autoconf \
@@ -22,15 +22,17 @@ RUN apk add --no-cache \
         libevent-dev \
         libffi-dev \
         libpng-dev \
-        libressl-dev \
         libtool \
         libwebp-dev \
         libxml2-dev \
         libxslt-dev \
         linux-headers \
         make \
+        mariadb-dev \
         ncurses-dev \
+        openssl-dev \
         patch \
+        postgresql-dev \
         readline-dev \
         sqlite-dev \
         xz \
