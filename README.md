@@ -1,5 +1,7 @@
 # alpine-buildpack-deps
 
+## *Note: this project is no longer maintained.*
+
 [![Docker Pulls](https://img.shields.io/docker/pulls/praekeltfoundation/alpine-buildpack-deps.svg)](https://hub.docker.com/r/praekeltfoundation/alpine-buildpack-deps/)
 [![Build Status](https://img.shields.io/travis/praekeltfoundation/alpine-buildpack-deps/master.svg)](https://travis-ci.org/praekeltfoundation/alpine-buildpack-deps)
 
